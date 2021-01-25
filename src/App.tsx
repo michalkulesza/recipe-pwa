@@ -1,11 +1,10 @@
 import React from "react";
+import { Authenticated, Unauthenticated } from "./views";
 
-function App() {
-	return (
-		<div className="App">
-			<h1>Hallo</h1>
-		</div>
-	);
-}
+const auth = false;
+
+const App: React.FC = () => {
+	return auth ? <Authenticated /> : <Unauthenticated />;
+};
 
 export default App;
