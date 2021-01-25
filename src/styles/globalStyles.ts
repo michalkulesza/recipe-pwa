@@ -1,11 +1,12 @@
 import { createGlobalStyle } from "styled-components";
+import { theme } from "./theme";
 
 const GlobalStyle = createGlobalStyle`
 html, body {
    font-family: 'Open Sans', sans-serif;
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
-   background-color: #141414;
+   background-color: ${theme.background};
    color: #fff;
    font-size: 16px;
    overflow-x: hidden;
