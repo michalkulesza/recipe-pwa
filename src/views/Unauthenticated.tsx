@@ -1,23 +1,10 @@
 import React from "react";
-
-import { Auth } from "../layouts";
-import { Text } from "../components";
+import { Signin } from "../screens";
 
 interface Props {}
 
 const Unauthenticated: React.FC<Props> = () => {
-	return (
-		<Auth
-			top={
-				<>
-					<Text>Hello!</Text>
-					<Text>Let's sign in.</Text>
-				</>
-			}
-			content={"lol"}
-			bottom={<Text>Bttom</Text>}
-		/>
-	);
+	return <Signin />;
 };
 
 export default Unauthenticated;

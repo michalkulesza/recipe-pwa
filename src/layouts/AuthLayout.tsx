@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 interface Props {
 	top: React.ReactNode;
@@ -7,7 +7,13 @@ interface Props {
 	bottom: React.ReactNode;
 }
 
-const Container = styled.div``;
+const Container = styled.div`
+	padding: 1rem;
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	flex-direction: column;
+`;
 
 const Content = styled.div``;
 

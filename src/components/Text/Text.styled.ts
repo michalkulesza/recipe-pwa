@@ -10,6 +10,7 @@ interface PropsI {
 
 const commonStyles = ({ inverted, color }: PropsI) => css`
 	color: ${inverted ? theme.textInverted : theme[color]};
+	margin: 0;
 `;
 
 export const H1 = styled.h1<PropsI>`

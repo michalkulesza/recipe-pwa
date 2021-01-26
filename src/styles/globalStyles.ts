@@ -10,7 +10,6 @@ html, body {
    color: #fff;
    font-size: 16px;
    overflow-x: hidden;
-   
    }
 
 ul,li{
