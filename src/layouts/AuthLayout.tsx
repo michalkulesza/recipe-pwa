@@ -15,7 +15,12 @@ const Container = styled.div`
 	flex-direction: column;
 `;
 
-const Content = styled.div``;
+const Content = styled.div`
+	padding: 2rem 0;
+	gap: 0.2rem;
+	display: flex;
+	flex-direction: column;
+`;
 
 const AuthLayout: React.FC<Props> = ({ top, content, bottom }) => {
 	return (
