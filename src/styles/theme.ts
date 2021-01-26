@@ -1,4 +1,6 @@
-const light = {
+import { ColorsI } from "../types";
+
+const light: ColorsI = {
 	primary: "#FA832E",
 	secondary: "#17C446",
 	text: "#000024",
@@ -7,7 +9,7 @@ const light = {
 	placeholder: "#A3A2B2",
 };
 
-// const dark = {};
+// const dark: ColorsI = {};
 
 const theme = light;
 

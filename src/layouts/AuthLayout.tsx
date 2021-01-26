@@ -11,7 +11,7 @@ const Container = styled.div``;
 
 const Content = styled.div``;
 
-const Auth: React.FC<Props> = ({ top, content, bottom }) => {
+const AuthLayout: React.FC<Props> = ({ top, content, bottom }) => {
 	return (
 		<Container>
 			{top}
@@ -21,4 +21,4 @@ const Auth: React.FC<Props> = ({ top, content, bottom }) => {
 	);
 };
 
-export default Auth;
+export default AuthLayout;
