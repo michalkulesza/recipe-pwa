@@ -30,3 +30,10 @@ export const InputContainer = styled.input`
 `;
 
 export const Suffix = styled.div``;
+
+export const Error = styled.div`
+	padding: 0.81rem;
+	font-size: 0.81rem;
+	background-color: red;
+	border-radius: 5px;
+`;
