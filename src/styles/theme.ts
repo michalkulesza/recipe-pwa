@@ -7,6 +7,7 @@ const light: ColorsI = {
 	textInverted: "#FFFFFF",
 	background: "#F0F2F7",
 	placeholder: "#A3A2B2",
+	error: "red",
 };
 
 // const dark: ColorsI = {};

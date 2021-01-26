@@ -58,6 +58,7 @@ const Input: React.FC<InputPropsI> = ({
 				placeholder={placeholder}
 				value={value}
 				onChange={e => onChange(e)}
+				error={error}
 			></InputContainer>
 			<Suffix>{suffix}</Suffix>
 			{error && <Error>{error}</Error>}

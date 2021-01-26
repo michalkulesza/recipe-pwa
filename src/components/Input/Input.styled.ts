@@ -6,14 +6,19 @@ import { InputPropsI } from "./Input";
 interface PropsI {
 	styling: InputPropsI["styling"];
 	type: InputPropsI["type"];
+	error?: InputPropsI["error"];
 }
 
-const commonStyles = ({ styling, type }: PropsI) => css`
+const commonStyles = ({ styling, type, error = "" }: PropsI) => css`
 	width: 100%;
 	padding: 0.81rem;
 	background-color: ${theme.background};
 	border-radius: ${styling === "default" ? "5px" : "0"};
-	border-bottom: ${styling === "underline" ? "1px solid " + theme.placeholder : "none"};
+	border-bottom: ${styling === "underline" && error.length > 0
+		? "1px solid " + theme.error
+		: styling === "underline"
+		? "1px solid "
+		: "none"};
 	font-size: 0.81rem;
 `;
 
@@ -34,6 +39,5 @@ export const Suffix = styled.div``;
 export const Error = styled.div`
 	padding: 0.81rem;
 	font-size: 0.81rem;
-	background-color: red;
-	border-radius: 5px;
+	color: ${theme.error};
 `;
