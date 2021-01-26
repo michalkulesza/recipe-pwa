@@ -9,4 +9,6 @@ const light = {
 
 // const dark = {};
 
-export const theme = light;
+const theme = light;
+
+export default theme;

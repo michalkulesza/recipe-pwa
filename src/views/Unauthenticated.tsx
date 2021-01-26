@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Auth } from "../templates";
+import { Auth } from "../layouts";
 import { Text } from "../components";
 
 interface Props {}
