@@ -1,6 +1,6 @@
 import React from "react";
 import { AuthLayout } from "../layouts";
-import { Text } from "../components";
+import { Input, Text } from "../components";
 
 interface Props {}
 
@@ -13,7 +13,12 @@ const Signin: React.FC<Props> = () => {
 					<Text type="H1">Let's sign in.</Text>
 				</>
 			}
-			content={<Text>Lol</Text>}
+			content={
+				<>
+					<Input styling="underline" placeholder="E-mail" />
+					<Input styling="underline" placeholder="Password" />
+				</>
+			}
 			bottom={<Text>Bttom</Text>}
 		/>
 	);

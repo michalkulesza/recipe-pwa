@@ -15,42 +15,42 @@ const commonStyles = ({ inverted, color }: PropsI) => css`
 
 export const H1 = styled.h1<PropsI>`
 	${props => commonStyles(props)};
-	font-size: 28pt;
+	font-size: 1.75rem;
 	font-weight: normal;
 `;
 
 export const H1B = styled.h1<PropsI>`
 	${props => commonStyles(props)};
-	font-size: 28pt;
+	font-size: 1.75rem;
 	font-weight: bold;
 `;
 
 export const H2B = styled.h1<PropsI>`
 	${props => commonStyles(props)};
-	font-size: 21pt;
+	font-size: 1.31rem;
 	font-weight: bold;
 `;
 
 export const H3 = styled.h1<PropsI>`
 	${props => commonStyles(props)};
-	font-size: 13pt;
+	font-size: 0.81rem;
 	font-weight: normal;
 `;
 
 export const H3B = styled.h1<PropsI>`
 	${props => commonStyles(props)};
-	font-size: 13pt;
+	font-size: 0.81rem;
 	font-weight: bold;
 `;
 
 export const H4 = styled.h1<PropsI>`
 	${props => commonStyles(props)};
-	font-size: 11pt;
+	font-size: 0.68rem;
 	font-weight: normal;
 `;
 
 export const H4B = styled.h1<PropsI>`
 	${props => commonStyles(props)};
-	font-size: 11pt;
+	font-size: 0.68rem;
 	font-weight: bold;
 `;
