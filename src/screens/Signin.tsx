@@ -86,7 +86,12 @@ const Signin: React.FC<Props> = () => {
 			}
 			bottom={
 				<>
-					<Button form="loginForm" type="submit">
+					<Button
+						form="loginForm"
+						type="submit"
+						disabled={!formik.isValid || formik.isSubmitting || !formik.dirty}
+						loading={formik.isSubmitting}
+					>
 						Sign in
 					</Button>
 					<Button styling="clear" handleClick={handleSignupLink}>

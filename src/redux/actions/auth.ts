@@ -26,11 +26,10 @@ export const signUpUser = (name: string, username: string, password: string, cal
 					name,
 				},
 			});
+			callback();
 		} catch (error) {
 			dispatch(setError(error.message));
 		}
-
-		callback();
 	};
 };
 

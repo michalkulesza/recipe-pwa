@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components/macro";
 
 interface Props {
-	top: React.ReactNode;
+	top?: React.ReactNode;
 	content: React.ReactNode;
-	bottom: React.ReactNode;
+	bottom?: React.ReactNode;
 }
 
 const Container = styled.div`

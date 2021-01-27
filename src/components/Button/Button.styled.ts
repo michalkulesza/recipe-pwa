@@ -22,3 +22,23 @@ export const Clear = styled.button`
 	color: ${theme.text};
 	background-color: transparent;
 `;
+
+export const Spinning = styled.div`
+	animation: spin 1.5s infinite;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	svg {
+		transform: scale(1.2);
+	}
+
+	@keyframes spin {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+`;
