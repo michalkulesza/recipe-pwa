@@ -3,7 +3,9 @@ import { Button, Input, Text } from "../components";
 import { FormikErrors, useFormik } from "formik";
 import { useHistory } from "react-router-dom";
 import { SIGN_IN } from "../constants/routes";
+import { useDispatch } from "react-redux";
 import { AuthLayout } from "../layouts";
+import { signUpUser } from "../redux/actions/auth";
 
 interface Props {}
 
@@ -55,6 +57,7 @@ const initialValues: formValuesI = {
 
 const Signup: React.FC<Props> = () => {
 	const history = useHistory();
+	const dispatch = useDispatch();
 
 	const handleSignup = () => console.log("SUB");
 	const handleSigninLink = () => history.push(SIGN_IN);
@@ -62,7 +65,7 @@ const Signup: React.FC<Props> = () => {
 	const formik = useFormik({
 		initialValues,
 		validate,
-		onSubmit: handleSignup,
+		onSubmit: async val => dispatch(signUpUser(val.name, val.email, val.password2, () => {})),
 	});
 
 	return (

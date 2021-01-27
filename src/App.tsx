@@ -1,9 +1,9 @@
 import React from "react";
 import { ProtectedRoute, RedirectIfUser } from "./helpers/protectedRoute";
 import { HOME, SIGN_IN, SIGN_UP } from "./constants/routes";
+import { useAuthChange, useScreen } from "./hooks";
 import styled from "styled-components/macro";
 import { Switch } from "react-router-dom";
-import { useScreen } from "./hooks";
 
 import { Signin, Signup } from "./screens";
 
@@ -13,6 +13,7 @@ const Container = styled.div``;
 
 const App: React.FC = () => {
 	const screen = useScreen();
+	useAuthChange();
 
 	return (
 		<Container style={{ height: screen?.height }}>
