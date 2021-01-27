@@ -1,19 +1,10 @@
-import { SET_LOADING, SET_USER, CLEAR_USER, UserI } from "../types/auth";
+import { SET_USER, CLEAR_USER, UserI } from "../types/auth";
 
 import { Auth } from "aws-amplify";
 import { setError } from "./ui";
 
-export const setAuthLoading = (bool: boolean) => {
-	return {
-		type: SET_LOADING,
-		payload: bool,
-	};
-};
-
 export const loginUser = (username: string, password: string) => {
 	return async (dispatch: any) => {
-		dispatch(setAuthLoading(true));
-
 		try {
 			await Auth.signIn({
 				username,
@@ -22,15 +13,11 @@ export const loginUser = (username: string, password: string) => {
 		} catch (error) {
 			dispatch(setError(error.message));
 		}
-
-		dispatch(setAuthLoading(false));
 	};
 };
 
 export const signUpUser = (name: string, username: string, password: string, callback: () => void) => {
 	return async (dispatch: any) => {
-		dispatch(setAuthLoading(true));
-
 		try {
 			await Auth.signUp({
 				username,
@@ -44,7 +31,6 @@ export const signUpUser = (name: string, username: string, password: string, cal
 		}
 
 		callback();
-		dispatch(setAuthLoading(false));
 	};
 };
 

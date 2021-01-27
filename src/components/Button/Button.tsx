@@ -2,7 +2,7 @@ import React from "react";
 import { Default, Clear } from "./Button.styled";
 
 type PropsI = {
-	handleClick: () => void;
+	handleClick?: () => void;
 	styling?: "default" | "clear" | "round";
 	type?: "button" | "submit";
 	form?: string;
