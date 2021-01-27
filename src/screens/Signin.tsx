@@ -55,7 +55,11 @@ const Signin: React.FC<Props> = () => {
 				</>
 			}
 			content={
-				<form id="loginForm" onSubmit={formik.handleSubmit}>
+				<form
+					id="loginForm"
+					onSubmit={formik.handleSubmit}
+					style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}
+				>
 					<Input
 						styling="underline"
 						placeholder="E-mail"
@@ -78,7 +82,7 @@ const Signin: React.FC<Props> = () => {
 			bottom={
 				<>
 					<Button form="loginForm" type="submit" handleClick={handleSignin}>
-						Sign in
+						Text
 					</Button>
 					<Button styling="clear" handleClick={handleSignupLink}>
 						<Text type="H3" color="placeholder">

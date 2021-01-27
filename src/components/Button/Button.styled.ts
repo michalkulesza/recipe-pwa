@@ -13,6 +13,7 @@ const commonStyles = css`
 
 export const Default = styled.button`
 	${commonStyles};
+	color: #fff;
 	background-color: ${theme.primary};
 `;
 
