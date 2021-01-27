@@ -2,18 +2,26 @@ import React from "react";
 import { Button, Input, Text } from "../components";
 import { FormikErrors, useFormik } from "formik";
 import { useHistory } from "react-router-dom";
-import { SIGN_UP } from "../constants/routes";
+import { SIGN_IN } from "../constants/routes";
 import { AuthLayout } from "../layouts";
 
 interface Props {}
 
 interface formValuesI {
+	name: string;
 	email: string;
 	password: string;
+	password2: string;
 }
 
 const validate = (val: formValuesI) => {
 	let errors: FormikErrors<formValuesI> = {};
+
+	if (!val.name) {
+		errors.name = "Name is required";
+	} else if (val.name.length < 3) {
+		errors.name = "Name must be at least 3 characters long.";
+	}
 
 	if (!val.email) {
 		errors.email = "Email is required";
@@ -27,34 +35,42 @@ const validate = (val: formValuesI) => {
 		errors.password = "Password must be at least 5 characters long.";
 	}
 
+	if (!val.password2) {
+		errors.password2 = "Please confirm your password.";
+	} else if (val.password2.length < 5) {
+		errors.password2 = "Password must be at least 5 characters long.";
+	} else if (val.password !== val.password2) {
+		errors.password2 = "Password must match.";
+	}
+
 	return errors;
 };
 
 const initialValues: formValuesI = {
+	name: "",
 	email: "",
 	password: "",
+	password2: "",
 };
 
-const Signin: React.FC<Props> = () => {
+const Signup: React.FC<Props> = () => {
 	const history = useHistory();
 
-	const handleSignin = () => {};
-	const handleSignupLink = () => history.push(SIGN_UP);
+	const handleSignup = () => console.log("SUB");
+	const handleSigninLink = () => history.push(SIGN_IN);
 
 	const formik = useFormik({
 		initialValues,
 		validate,
-		onSubmit: val => {
-			console.log(formik.errors);
-		},
+		onSubmit: handleSignup,
 	});
 
 	return (
 		<AuthLayout
 			top={
 				<>
-					<Text type="H1Bold">Hello!</Text>
-					<Text type="H1">Let's sign in.</Text>
+					<Text type="H1Bold">New account?</Text>
+					<Text type="H1">Let's get you started!</Text>
 				</>
 			}
 			content={
@@ -63,6 +79,14 @@ const Signin: React.FC<Props> = () => {
 					onSubmit={formik.handleSubmit}
 					style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}
 				>
+					<Input
+						styling="underline"
+						placeholder="Name"
+						name="name"
+						value={formik.values.name}
+						onChange={formik.handleChange}
+						error={formik.errors.name}
+					/>
 					<Input
 						styling="underline"
 						placeholder="E-mail"
@@ -81,16 +105,30 @@ const Signin: React.FC<Props> = () => {
 						type="password"
 						error={formik.errors.password}
 					/>
+					<Input
+						styling="underline"
+						placeholder="Confirm Password"
+						name="password2"
+						value={formik.values.password2}
+						onChange={formik.handleChange}
+						type="password"
+						error={formik.errors.password2}
+					/>
 				</form>
 			}
 			bottom={
 				<>
-					<Button form="loginForm" type="submit" handleClick={handleSignin}>
-						Sign in
+					<Button
+						form="loginForm"
+						type="submit"
+						handleClick={handleSignup}
+						disabled={!formik.isValid || formik.isSubmitting || !formik.dirty}
+					>
+						Sign up
 					</Button>
-					<Button styling="clear" handleClick={handleSignupLink}>
+					<Button styling="clear" handleClick={handleSigninLink}>
 						<Text type="H3" color="placeholder">
-							Don't have an account yet? Sign up here.
+							Already have an account? Sign in here.
 						</Text>
 					</Button>
 				</>
@@ -99,4 +137,4 @@ const Signin: React.FC<Props> = () => {
 	);
 };
 
-export default Signin;
+export default Signup;

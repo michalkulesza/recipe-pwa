@@ -10,7 +10,7 @@ export interface InputPropsI {
 	value: string;
 	onChange: (e: InputsT) => void;
 	styling?: "default" | "underline";
-	type?: "text" | "textArea" | "password" | "select" | "number";
+	type?: "text" | "textArea" | "password" | "select" | "number" | "email";
 	label?: string;
 	placeholder?: string;
 	suffix?: React.ReactNode;

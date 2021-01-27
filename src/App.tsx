@@ -5,7 +5,7 @@ import styled from "styled-components/macro";
 import { Switch } from "react-router-dom";
 import { useScreen } from "./hooks";
 
-import { Signin } from "./screens";
+import { Signin, Signup } from "./screens";
 
 const auth = false;
 
@@ -21,7 +21,7 @@ const App: React.FC = () => {
 					<Signin />
 				</RedirectIfUser>
 				<RedirectIfUser trigger={auth} path={SIGN_UP} redirectTo={HOME}>
-					<h1>SIGNUP</h1>
+					<Signup />
 				</RedirectIfUser>
 				<ProtectedRoute trigger={auth} path={HOME} redirectTo={SIGN_IN}>
 					<h1>AUTHED</h1>
