@@ -1,5 +1,5 @@
 import { CLEAR_ERROR, SET_ERROR } from "../types/ui";
-// import { showMessage } from "react-native-flash-message";
+import { store } from "react-notifications-component";
 
 export const setError = (error: string) => {
 	return async (dispatch: any) => {
@@ -12,9 +12,15 @@ export const setError = (error: string) => {
 			payload: error,
 		});
 
-		// showMessage({
-		// 	message: error,
-		// });
+		store.addNotification({
+			container: "bottom-center",
+			message: error,
+			title: "Whoops!",
+			type: "danger",
+			dismiss: {
+				duration: 3000,
+			},
+		});
 
 		setTimeout(() => {
 			dispatch({
