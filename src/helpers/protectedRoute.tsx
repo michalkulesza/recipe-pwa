@@ -6,11 +6,12 @@ interface PropsI {
 	redirectTo: string;
 	children: React.ReactNode;
 	path: string;
+	exact?: boolean;
 }
 
-export const RedirectIfUser = ({ trigger, path, redirectTo, children }: PropsI) => (
+export const RedirectIfUser = ({ exact = false, trigger, path, redirectTo, children }: PropsI) => (
 	<Route
-		exact
+		exact={exact}
 		path={path}
 		render={({ location }) => {
 			return trigger ? (
@@ -27,9 +28,9 @@ export const RedirectIfUser = ({ trigger, path, redirectTo, children }: PropsI) 
 	/>
 );
 
-export const ProtectedRoute = ({ trigger, path, redirectTo, children }: PropsI) => (
+export const ProtectedRoute = ({ exact = false, trigger, path, redirectTo, children }: PropsI) => (
 	<Route
-		exact
+		exact={exact}
 		path={path}
 		render={({ location }) => {
 			return trigger ? (
