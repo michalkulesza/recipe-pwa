@@ -19,7 +19,8 @@ export const Default = styled.button`
 
 export const Clear = styled.button`
 	${commonStyles};
-	color: ${theme.text};
+	padding-right: 0;
+	color: ${theme.primary};
 	background-color: transparent;
 `;
 
