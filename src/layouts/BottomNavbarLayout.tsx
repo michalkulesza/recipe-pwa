@@ -15,6 +15,7 @@ const Container = styled.div`
 const Navbar = styled.div`
 	position: absolute;
 	height: fit-content;
+	z-index: 100;
 	width: 100%;
 	bottom: 0;
 `;
