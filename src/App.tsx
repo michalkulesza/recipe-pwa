@@ -7,7 +7,7 @@ import { Switch, Route } from "react-router-dom";
 import styled from "styled-components/macro";
 import { useSelector } from "react-redux";
 
-import { Signin, Signup, ConfirmSignup, Page404 } from "./screens";
+import { Signin, Signup, ConfirmSignup, Page404, Home } from "./screens";
 import { NavbarBottomContainer } from "./containers";
 import { BottomNavbarLayout } from "./layouts";
 import { Text } from "./components";
@@ -33,7 +33,7 @@ const App: React.FC = () => {
 				</RedirectIfUser>
 				<ProtectedRoute exact trigger={user} path={HOME} redirectTo={SIGN_IN}>
 					<BottomNavbarLayout navbar={<NavbarBottomContainer />}>
-						<Text type="H1Bold">HOME</Text>
+						<Home />
 					</BottomNavbarLayout>
 				</ProtectedRoute>
 				<ProtectedRoute exact trigger={user} path={ADD} redirectTo={SIGN_IN}>

@@ -15,15 +15,16 @@ interface OverlayPropsI {
 export const Container = styled.div`
 	position: relative;
 	height: ${({ height, width }: ContainerPropsI) =>
-		height ? height : width ? `calc(${width} / 2 * 1.53)` : "initial"};
+		height ? height : width ? `calc(${width} / 2 * 1.42)` : "initial"};
 	width: ${({ height, width }: ContainerPropsI) =>
-		height ? `calc(${height} * 0.65)` : `calc(${width} - 0.5rem)` ? `calc(${width} / 2 - 0.5rem)` : "initial"};
+		height ? `calc(${height} * 0.7)` : `calc(${width} - 0.5rem)` ? `calc(${width} / 2 - 0.5rem)` : "initial"};
 	overflow: hidden;
 	display: flex;
 	justify-content: center;
 	border-radius: 5px;
 	margin-right: ${({ marginRight }: ContainerPropsI) => marginRight};
 	${Shadow};
+	flex-shrink: 0;
 `;
 
 export const Image = styled.img`

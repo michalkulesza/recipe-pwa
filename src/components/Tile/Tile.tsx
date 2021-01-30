@@ -3,8 +3,8 @@ import { Container, Image, Overlay } from "./Tile.styled";
 import { Text } from "../../components";
 
 export interface PropsI {
-	title: string;
 	image: string;
+	title?: string;
 	height?: string;
 	width?: string;
 	marginRight?: string;
@@ -15,11 +15,13 @@ const Tile: React.FC<PropsI> = ({ title, image, height, width, marginRight = "0r
 	return (
 		<Container height={height} width={width} marginRight={marginRight}>
 			<Image src={image} />
-			<Overlay noOverlay={noOverlay}>
-				<Text type="H2Bold" color="textInverted">
-					{title}
-				</Text>
-			</Overlay>
+			{title && (
+				<Overlay noOverlay={noOverlay}>
+					<Text type="H2Bold" color="textInverted">
+						{title}
+					</Text>
+				</Overlay>
+			)}
 		</Container>
 	);
 };
