@@ -5,3 +5,4 @@ export { default as BottomNavbar } from "./BottomNavbar/BottomNavbar";
 export { default as Carousel } from "./Carousel/Carousel";
 export { default as Tile } from "./Tile/Tile";
 export { default as DoubleTab } from "./DoubleTab/DoubleTab";
+export { default as Header } from "./Header/Header";
