@@ -1,5 +1,5 @@
 import React from "react";
-import { Default, Clear, Spinning } from "./Button.styled";
+import { Default, Clear, Spinning, Round } from "./Button.styled";
 import { FaSpinner } from "react-icons/fa";
 
 type PropsI = {
@@ -25,7 +25,9 @@ const Button: React.FC<PropsI> = ({
 			{children}
 		</Clear>
 	) : styling === "round" ? (
-		<Default onMouseDown={handleClick} type={type} form={form} disabled={disabled}></Default>
+		<Round onMouseDown={handleClick} type={type} form={form} disabled={disabled}>
+			{children}
+		</Round>
 	) : (
 		<Default onMouseDown={handleClick} type={type} form={form} disabled={disabled}>
 			{loading ? (

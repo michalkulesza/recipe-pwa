@@ -5,6 +5,7 @@ import theme from "../../styles/theme";
 const commonStyles = css`
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	text-align: center;
 	font-size: 0.81rem;
 	padding: 0.81rem;
@@ -22,6 +23,17 @@ export const Clear = styled.button`
 	padding-right: 0;
 	color: ${theme.primary};
 	background-color: transparent;
+`;
+
+export const Round = styled.button`
+	${commonStyles};
+	height: 3rem;
+	width: 3rem;
+	border-radius: 50%;
+	padding-right: 0;
+	padding: 0;
+	color: ${theme.primary};
+	background-color: ${theme.textInverted};
 `;
 
 export const Spinning = styled.div`
