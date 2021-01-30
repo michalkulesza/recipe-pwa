@@ -22,7 +22,7 @@ const DoubleTab: React.FC<PropsI> = ({ titles, data }) => {
 		<Container>
 			<Tabs>
 				{titles.map((title, i) => (
-					<Tab onMouseDown={() => handleTabClick(i)}>
+					<Tab key={i} onMouseDown={() => handleTabClick(i)}>
 						<Text type="H3" color={active === i ? "primary" : "placeholder"}>
 							{title}
 						</Text>
@@ -31,10 +31,10 @@ const DoubleTab: React.FC<PropsI> = ({ titles, data }) => {
 			</Tabs>
 			<ContentWrapper>
 				<ContentScroll scrolled={active === 1}>
-					{data.map(page => (
-						<Content>
+					{data.map((page, i) => (
+						<Content key={i}>
 							{page.map(item => (
-								<Item height={ITEM_HEIGHT}>
+								<Item key={item.id} height={ITEM_HEIGHT}>
 									<Tile image={item.imageURL} height={ITEM_HEIGHT} />
 									<Info>
 										<Text type="H3Bold">{item.name}</Text>
@@ -43,15 +43,15 @@ const DoubleTab: React.FC<PropsI> = ({ titles, data }) => {
 												{item.category}
 											</Text>
 											<span>
-												<FiClock size="0.7rem" color={theme.placeholder} style={{ marginRight: "0.2rem" }} />
+												<FiClock size="0.8rem" color={theme.placeholder} style={{ marginRight: "0.2rem" }} />
 												<Text type="H4" color="placeholder">
 													{item.prepTime}min
 												</Text>
 											</span>
 										</Row>
 										<Row>
-											{item.tags.map(tag => (
-												<Text type="H4" color="placeholder" marginRight="0.2rem">
+											{item.tags.map((tag, i) => (
+												<Text key={i} type="H4" color="placeholder" marginRight="0.2rem">
 													#{tag}
 												</Text>
 											))}

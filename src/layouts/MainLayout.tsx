@@ -29,7 +29,7 @@ const Navbar = styled.div`
 	width: 100%;
 	height: 5rem;
 	padding: ${Style.margin};
-	background-color: pink;
+	z-index: 100;
 `;
 
 const Header = styled.div`

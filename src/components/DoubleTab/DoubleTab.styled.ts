@@ -73,5 +73,7 @@ export const Row = styled.div`
 	span {
 		display: flex;
 		margin-left: 0.5rem;
+		align-items: center;
+		justify-content: center;
 	}
 `;
