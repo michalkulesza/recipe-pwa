@@ -15,8 +15,8 @@ type PropsI = {
 const List: React.FC<PropsI> = ({ data }) => {
 	return (
 		<Container>
-			{data.map(item => (
-				<Item>
+			{data.map((item, i) => (
+				<Item key={i}>
 					<Text>{item.name}</Text>
 					<Text type="H3Bold" color="placeholder">
 						{item.amount}

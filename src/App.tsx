@@ -56,7 +56,7 @@ const App: React.FC = () => {
 						<Text type="H1Bold">BROWSE</Text>
 					</BottomNavbarLayout>
 				</ProtectedRoute>
-				<ProtectedRoute exact trigger={user} path={RECIPE} redirectTo={SIGN_IN}>
+				<ProtectedRoute exact trigger={user} path={`${RECIPE}/:id`} redirectTo={SIGN_IN}>
 					<BottomNavbarLayout>
 						<Recipe />
 					</BottomNavbarLayout>

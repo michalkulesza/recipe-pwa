@@ -9,14 +9,15 @@ import theme from "../../styles/theme";
 type PropsI = {
 	titles: string[];
 	data: [RecipeI[], RecipeI[]];
+	clickHandler?: (id: RecipeI["id"]) => void;
 };
 
 const ITEM_HEIGHT = "6rem";
 
-const DoubleTab: React.FC<PropsI> = ({ titles, data }) => {
+const DoubleTab: React.FC<PropsI> = ({ titles, data, clickHandler }) => {
 	const [active, setActive] = useState(0);
-
 	const handleTabClick = (id: number) => setActive(id);
+	const handleItemClick = (id: RecipeI["id"]) => (clickHandler ? clickHandler(id) : () => null);
 
 	return (
 		<Container>
@@ -34,8 +35,8 @@ const DoubleTab: React.FC<PropsI> = ({ titles, data }) => {
 					{data.map((page, i) => (
 						<Content key={i}>
 							{page.map(item => (
-								<Item key={item.id} height={ITEM_HEIGHT}>
-									<Tile image={item.imageURL} height={ITEM_HEIGHT} />
+								<Item key={item.id} height={ITEM_HEIGHT} onMouseDown={() => handleItemClick(item.id)}>
+									<Tile id={item.id} image={item.imageURL} height={ITEM_HEIGHT} />
 									<Info>
 										<Text type="H3Bold">{item.name}</Text>
 										<Row>

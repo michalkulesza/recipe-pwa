@@ -27,3 +27,86 @@ export const RECIPES = [
 		calories: 600,
 	},
 ];
+
+export const INGRIDIENTS = [
+	{
+		name: "Flour",
+		amount: 500,
+		unit: "g",
+	},
+	{
+		name: "Flour",
+		amount: 500,
+		unit: "g",
+	},
+	{
+		name: "Flour",
+		amount: 500,
+		unit: "g",
+	},
+	{
+		name: "Flour",
+		amount: 500,
+		unit: "g",
+	},
+	{
+		name: "Flour",
+		amount: 500,
+		unit: "g",
+	},
+	{
+		name: "Flour",
+		amount: 500,
+		unit: "g",
+	},
+	{
+		name: "Flour",
+		amount: 500,
+		unit: "g",
+	},
+	{
+		name: "Flour",
+		amount: 500,
+		unit: "g",
+	},
+	{
+		name: "Flour",
+		amount: 500,
+		unit: "g",
+	},
+	{
+		name: "Flour",
+		amount: 500,
+		unit: "g",
+	},
+	{
+		name: "Flour",
+		amount: 500,
+		unit: "g",
+	},
+	{
+		name: "Flour",
+		amount: 500,
+		unit: "g",
+	},
+	{
+		name: "Flour",
+		amount: 500,
+		unit: "g",
+	},
+	{
+		name: "Flour",
+		amount: 500,
+		unit: "g",
+	},
+	{
+		name: "Flour",
+		amount: 500,
+		unit: "g",
+	},
+	{
+		name: "Flour",
+		amount: 500,
+		unit: "g",
+	},
+];
