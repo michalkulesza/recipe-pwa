@@ -6,6 +6,7 @@ export const RECIPES = [
 		prepTime: 69,
 		tags: ["Uno", "Dos", "Tres"],
 		category: "Breakkie",
+		calories: 600,
 	},
 	{
 		id: `heh${Math.random() * Math.random()}`,
@@ -14,6 +15,7 @@ export const RECIPES = [
 		prepTime: 69,
 		tags: ["Uno", "Dos", "Tres"],
 		category: "Breakkie",
+		calories: 600,
 	},
 	{
 		id: `heh${Math.random() * Math.random()}`,
@@ -22,5 +24,6 @@ export const RECIPES = [
 		prepTime: 69,
 		tags: ["Uno", "Dos", "Tres"],
 		category: "Breakkie",
+		calories: 600,
 	},
 ];
