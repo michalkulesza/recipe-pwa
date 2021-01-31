@@ -12,6 +12,11 @@ html, body {
    overflow-x: hidden;
    }
 
+body{
+   min-height: 100vh;
+   min-height: -webkit-fill-available;
+}
+
 ul,li{
    margin: 0;
    padding: 0;

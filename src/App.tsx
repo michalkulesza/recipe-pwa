@@ -1,25 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ADD, BROWSE, HOME, RECIPE, SETTINGS, SIGN_CONFIRM, SIGN_IN, SIGN_UP } from "./constants/routes";
+import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 import { ProtectedRoute, RedirectIfUser } from "./helpers/protectedRoute";
 import { RootState } from "./redux/reducers/rootReducer";
-import { useAuthChange, useScreen } from "./hooks";
 import { Switch, Route } from "react-router-dom";
 import styled from "styled-components/macro";
 import { useSelector } from "react-redux";
+import { useAuthChange } from "./hooks";
 
 import { Signin, Signup, ConfirmSignup, Page404, Home, Recipe } from "./screens";
 import { BottomNavbarLayout } from "./layouts";
 import { Text } from "./components";
 
-const Container = styled.div``;
+const Container = styled.div`
+	height: 100vh;
+	width: 100%;
+	height: -webkit-fill-available;
+`;
 
 const App: React.FC = () => {
 	const { user } = useSelector((state: RootState) => state.auth);
-	const screen = useScreen();
 	useAuthChange();
 
+	//Disable body overscroll for iOS
+	const elem = document.querySelector("body");
+	useEffect(() => {
+		if (elem) disableBodyScroll(elem);
+		return () => clearAllBodyScrollLocks();
+	}, [elem]);
+
 	return (
-		<Container style={{ height: screen?.height }}>
+		<Container>
 			<Switch>
 				<RedirectIfUser exact trigger={user} path={SIGN_IN} redirectTo={HOME}>
 					<Signin />

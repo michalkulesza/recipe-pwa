@@ -8,9 +8,10 @@ interface Props {
 }
 
 const Container = styled.div`
-	padding: 1rem;
+	padding: 0rem 1rem;
 	display: flex;
 	height: 100%;
+	min-height: -webkit-fill-available;
 	justify-content: center;
 	flex-direction: column;
 `;
