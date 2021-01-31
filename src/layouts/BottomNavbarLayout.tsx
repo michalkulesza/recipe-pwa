@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components/macro";
+import { NavbarBottomContainer } from "../containers";
 
 interface Props {
 	children: React.ReactNode;
-	navbar: React.ReactNode;
 }
 
 const Container = styled.div`
@@ -20,11 +20,13 @@ const Navbar = styled.div`
 	bottom: 0;
 `;
 
-const BottomNavbarLayout: React.FC<Props> = ({ children, navbar }) => {
+const BottomNavbarLayout: React.FC<Props> = ({ children }) => {
 	return (
 		<Container>
 			{children}
-			<Navbar>{navbar}</Navbar>
+			<Navbar>
+				<NavbarBottomContainer />
+			</Navbar>
 		</Container>
 	);
 };

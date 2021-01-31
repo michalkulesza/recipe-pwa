@@ -1,14 +1,13 @@
 import React from "react";
+import { ADD, BROWSE, HOME, RECIPE, SETTINGS, SIGN_CONFIRM, SIGN_IN, SIGN_UP } from "./constants/routes";
 import { ProtectedRoute, RedirectIfUser } from "./helpers/protectedRoute";
-import { ADD, BROWSE, HOME, SETTINGS, SIGN_CONFIRM, SIGN_IN, SIGN_UP } from "./constants/routes";
 import { RootState } from "./redux/reducers/rootReducer";
 import { useAuthChange, useScreen } from "./hooks";
 import { Switch, Route } from "react-router-dom";
 import styled from "styled-components/macro";
 import { useSelector } from "react-redux";
 
-import { Signin, Signup, ConfirmSignup, Page404, Home } from "./screens";
-import { NavbarBottomContainer } from "./containers";
+import { Signin, Signup, ConfirmSignup, Page404, Home, Recipe } from "./screens";
 import { BottomNavbarLayout } from "./layouts";
 import { Text } from "./components";
 
@@ -32,22 +31,27 @@ const App: React.FC = () => {
 					<ConfirmSignup />
 				</RedirectIfUser>
 				<ProtectedRoute exact trigger={user} path={HOME} redirectTo={SIGN_IN}>
-					<BottomNavbarLayout navbar={<NavbarBottomContainer />}>
+					<BottomNavbarLayout>
 						<Home />
 					</BottomNavbarLayout>
 				</ProtectedRoute>
 				<ProtectedRoute exact trigger={user} path={ADD} redirectTo={SIGN_IN}>
-					<BottomNavbarLayout navbar={<NavbarBottomContainer />}>
+					<BottomNavbarLayout>
 						<Text type="H1Bold">ADD</Text>
 					</BottomNavbarLayout>
 				</ProtectedRoute>
 				<ProtectedRoute exact trigger={user} path={BROWSE} redirectTo={SIGN_IN}>
-					<BottomNavbarLayout navbar={<NavbarBottomContainer />}>
+					<BottomNavbarLayout>
 						<Text type="H1Bold">BROWSE</Text>
 					</BottomNavbarLayout>
 				</ProtectedRoute>
+				<ProtectedRoute exact trigger={user} path={RECIPE} redirectTo={SIGN_IN}>
+					<BottomNavbarLayout>
+						<Recipe />
+					</BottomNavbarLayout>
+				</ProtectedRoute>
 				<ProtectedRoute exact trigger={user} path={SETTINGS} redirectTo={SIGN_IN}>
-					<BottomNavbarLayout navbar={<NavbarBottomContainer />}>
+					<BottomNavbarLayout>
 						<Text type="H1Bold">SETTINGS</Text>
 					</BottomNavbarLayout>
 				</ProtectedRoute>
