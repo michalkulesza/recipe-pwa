@@ -16,7 +16,7 @@ const Container = styled.div`
 `;
 
 const Navbar = styled.div`
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -50,6 +50,7 @@ const Content = styled.div`
 	border-radius: 13px 13px 0 0;
 	overflow: hidden;
 	padding: ${`calc(${Style.margin} * 2)`};
+	padding-bottom: 8rem;
 `;
 
 const CardLayout: React.FC<Props> = ({ navbar, header, content }) => {

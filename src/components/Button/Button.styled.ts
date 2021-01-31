@@ -1,6 +1,7 @@
 import styled from "styled-components/macro";
 import { css } from "styled-components";
 import theme from "../../styles/theme";
+import { Shadow } from "../../styles/common";
 
 const commonStyles = css`
 	display: flex;
@@ -34,6 +35,7 @@ export const Round = styled.button`
 	padding: 0;
 	color: ${theme.primary};
 	background-color: ${theme.textInverted};
+	${Shadow};
 `;
 
 export const Spinning = styled.div`

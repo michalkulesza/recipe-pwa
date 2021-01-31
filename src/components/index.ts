@@ -7,3 +7,4 @@ export { default as Tile } from "./Tile/Tile";
 export { default as DoubleTab } from "./DoubleTab/DoubleTab";
 export { default as Header } from "./Header/Header";
 export { default as Tag } from "./Tag/Tag";
+export { default as List } from "./List/List";
