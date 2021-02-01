@@ -54,7 +54,7 @@ const Recipe: React.FC<PropsI> = () => {
 					<FiChevronLeft size="1.8rem" style={{ marginLeft: "-0.2rem" }} color={theme.text} />
 				</Button>
 			}
-			header={<Header imageURL={DATA.imageURL} />}
+			header={<Header image={DATA.imageURL} />}
 			content={
 				<Container>
 					<Title>
