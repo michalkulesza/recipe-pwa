@@ -10,7 +10,8 @@ interface Props {
 
 const Container = styled.div`
 	position: relative;
-	height: 100%;
+	height: 100vh;
+	height: -webkit-fill-available;
 	width: 100%;
 	overflow-y: scroll;
 `;

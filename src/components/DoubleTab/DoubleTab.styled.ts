@@ -35,6 +35,7 @@ export const Tab = styled.div`
 export const ContentWrapper = styled.div`
 	width: calc(100% + ${Style.margin} + ${Style.margin});
 	overflow: hidden;
+	padding: 0.5rem 0;
 	padding-left: ${Style.margin};
 	margin-left: -${Style.margin};
 `;
@@ -42,7 +43,6 @@ export const ContentWrapper = styled.div`
 export const ContentScroll = styled.div`
 	display: flex;
 	width: 200%;
-	gap: ${Style.margin};
 	padding-right: ${Style.margin};
 	margin-left: ${({ scrolled }: ContentScrollPropsI) => (scrolled ? "-100%" : "0%")};
 	transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
@@ -51,6 +51,9 @@ export const ContentScroll = styled.div`
 export const Content = styled.div`
 	height: 100%;
 	flex: 1;
+	&:first-of-type {
+		margin-right: ${Style.margin};
+	}
 `;
 
 export const Item = styled.div`

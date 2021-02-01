@@ -8,12 +8,19 @@ interface Props {
 
 const Container = styled.div`
 	position: relative;
+	height: 100vh;
+	height: -webkit-fill-available;
+	width: 100%;
+	overflow: hidden;
+`;
+
+const Content = styled.div`
 	height: 100%;
 	width: 100%;
 `;
 
 const Navbar = styled.div`
-	position: absolute;
+	position: fixed;
 	height: fit-content;
 	z-index: 100;
 	width: 100%;
@@ -23,7 +30,7 @@ const Navbar = styled.div`
 const BottomNavbarLayout: React.FC<Props> = ({ children }) => {
 	return (
 		<Container>
-			{children}
+			<Content>{children}</Content>
 			<Navbar>
 				<NavbarBottomContainer />
 			</Navbar>

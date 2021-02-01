@@ -11,19 +11,24 @@ interface Props {
 const Container = styled.div`
 	position: relative;
 	display: flex;
-	height: 100%;
+	height: 100vh;
+	height: -webkit-fill-available;
 	width: 100%;
 	flex-direction: column;
-	overflow: hidden;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
 `;
 
 const Scrollable = styled.div`
+	min-height: 100%;
+	height: fit-content;
+	width: 100%;
 	padding: ${Style.margin};
-	overflow-y: scroll;
+	flex-shrink: 0;
 `;
 
 const Navbar = styled.div`
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -46,8 +51,8 @@ const Content = styled.div`
 const MainLayout: React.FC<Props> = ({ navbar, header, content }) => {
 	return (
 		<Container>
+			<Navbar>{navbar}</Navbar>
 			<Scrollable>
-				<Navbar>{navbar}</Navbar>
 				<Header>{header}</Header>
 				<Content>{content}</Content>
 			</Scrollable>

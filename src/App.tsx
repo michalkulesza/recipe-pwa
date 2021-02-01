@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { ADD, BROWSE, HOME, RECIPE, SETTINGS, SIGN_CONFIRM, SIGN_IN, SIGN_UP } from "./constants/routes";
-import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 import { ProtectedRoute, RedirectIfUser } from "./helpers/protectedRoute";
 import { RootState } from "./redux/reducers/rootReducer";
 import { Switch, Route } from "react-router-dom";
@@ -21,13 +20,6 @@ const Container = styled.div`
 const App: React.FC = () => {
 	const { user } = useSelector((state: RootState) => state.auth);
 	useAuthChange();
-
-	//Disable body overscroll for iOS
-	const elem = document.querySelector("body");
-	useEffect(() => {
-		if (elem) disableBodyScroll(elem);
-		return () => clearAllBodyScrollLocks();
-	}, [elem]);
 
 	return (
 		<Container>
