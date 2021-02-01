@@ -52,7 +52,7 @@ const Placeholder = styled.div`
 const Content = styled.div`
 	pointer-events: all;
 	width: 100%;
-	min-height: calc(300vh - 250px);
+	min-height: calc(100vh - 250px);
 	background-color: rgba(255, 255, 255, 0.95);
 	backdrop-filter: blur(5px);
 	border-radius: 13px 13px 0 0;

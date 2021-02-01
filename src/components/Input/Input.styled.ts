@@ -22,8 +22,13 @@ const commonStyles = ({ styling, type, error = "" }: PropsI) => css`
 	font-size: 0.81rem;
 `;
 
+export const Container = styled.div`
+	flex: 1;
+`;
+
 export const TextArea = styled.textarea`
-	${(props: PropsI) => commonStyles(props)}
+	${(props: PropsI) => commonStyles(props)};
+	min-height: 8rem;
 `;
 
 export const Select = styled.select`

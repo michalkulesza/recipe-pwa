@@ -1,5 +1,7 @@
 import React from "react";
-import { TextArea, Select, InputContainer, Suffix, Error } from "./Input.styled";
+import { Container, TextArea, Select, InputContainer, Suffix, Error } from "./Input.styled";
+
+import { Text } from "../../components";
 
 export type InputsT =
 	| React.ChangeEvent<HTMLTextAreaElement>
@@ -7,7 +9,7 @@ export type InputsT =
 	| React.ChangeEvent<HTMLInputElement>;
 
 export interface InputPropsI {
-	value: string;
+	value: string | number;
 	onChange: (e: InputsT) => void;
 	styling?: "default" | "underline";
 	type?: "text" | "textArea" | "password" | "select" | "number" | "email";
@@ -29,40 +31,50 @@ const Input: React.FC<InputPropsI> = ({
 	error,
 	name,
 }) => {
-	return type === "textArea" ? (
-		<>
-			<label htmlFor={name}>{label}</label>
-			<TextArea
-				id={name}
-				styling={styling}
-				type={type}
-				placeholder={placeholder}
-				value={value}
-				onChange={e => onChange(e)}
-			></TextArea>
-			<Suffix>{suffix}</Suffix>
-		</>
-	) : type === "select" ? (
-		<>
-			<label htmlFor={name}>{label}</label>
-			<Select id={name} styling={styling} type={type} value={value} onChange={e => onChange(e)}></Select>
-			<Suffix>{suffix}</Suffix>
-		</>
-	) : (
-		<>
-			<label htmlFor={name}>{label}</label>
-			<InputContainer
-				id={name}
-				styling={styling}
-				type={type}
-				placeholder={placeholder}
-				value={value}
-				onChange={e => onChange(e)}
-				error={error}
-			></InputContainer>
-			<Suffix>{suffix}</Suffix>
-			{error && <Error>{error}</Error>}
-		</>
+	return (
+		<Container>
+			{type === "textArea" ? (
+				<>
+					<label htmlFor={name}>
+						<Text>{label}</Text>
+					</label>
+					<TextArea
+						id={name}
+						styling={styling}
+						type={type}
+						placeholder={placeholder}
+						value={value}
+						onChange={e => onChange(e)}
+					></TextArea>
+					<Suffix>{suffix}</Suffix>
+				</>
+			) : type === "select" ? (
+				<>
+					<label htmlFor={name}>
+						<Text>{label}</Text>
+					</label>
+					<Select id={name} styling={styling} type={type} value={value} onChange={e => onChange(e)}></Select>
+					<Suffix>{suffix}</Suffix>
+				</>
+			) : (
+				<>
+					<label htmlFor={name}>
+						<Text>{label}</Text>
+					</label>
+					<InputContainer
+						id={name}
+						styling={styling}
+						type={type}
+						placeholder={placeholder}
+						value={value}
+						onChange={e => onChange(e)}
+						error={error}
+					></InputContainer>
+					<Suffix>{suffix}</Suffix>
+					{error && <Error>{error}</Error>}
+				</>
+			)}
+		</Container>
 	);
 };
 
