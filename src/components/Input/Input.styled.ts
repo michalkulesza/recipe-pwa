@@ -20,6 +20,8 @@ const commonStyles = ({ styling, type, error = "" }: PropsI) => css`
 		? "1px solid "
 		: "none"};
 	font-size: 0.81rem;
+	border: none;
+	-webkit-appearance: none;
 `;
 
 export const Container = styled.div`
@@ -33,6 +35,17 @@ export const TextArea = styled.textarea`
 
 export const Select = styled.select`
 	${(props: PropsI) => commonStyles(props)}
+`;
+
+export const SelectContainer = styled.div`
+	position: relative;
+`;
+
+export const SelectIcon = styled.div`
+	position: absolute;
+	top: 55%;
+	right: 1rem;
+	transform: translateY(-50%);
 `;
 
 export const InputContainer = styled.input`

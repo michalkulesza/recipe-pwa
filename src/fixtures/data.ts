@@ -1,3 +1,5 @@
+export const CATEGORIES = ["Breakfast", "Lunch", "Dinner", "Dessert"];
+
 export const RECIPES = [
 	{
 		id: `heh${Math.random() * Math.random()}`,

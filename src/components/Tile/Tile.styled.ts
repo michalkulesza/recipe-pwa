@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import { Shadow } from "../../styles/common";
+import { Shadow, Style } from "../../styles/common";
 import { PropsI } from "./Tile";
 
 interface ContainerPropsI {
@@ -42,6 +42,6 @@ export const Overlay = styled.div`
 	background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 115%);
 	display: flex;
 	align-items: flex-end;
-	padding: 1rem;
+	padding: ${Style.margin};
 	visibility: ${({ noOverlay }: OverlayPropsI) => noOverlay && "hidden"};
 `;

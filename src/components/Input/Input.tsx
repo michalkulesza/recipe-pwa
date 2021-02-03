@@ -1,7 +1,18 @@
 import React from "react";
-import { Container, TextArea, Select, InputContainer, Suffix, Error } from "./Input.styled";
+import {
+	Container,
+	TextArea,
+	Select,
+	SelectIcon,
+	SelectContainer,
+	InputContainer,
+	Suffix,
+	Error,
+} from "./Input.styled";
 
+import { BsFillCaretDownFill } from "react-icons/bs";
 import { Text } from "../../components";
+import theme from "../../styles/theme";
 
 export type InputsT =
 	| React.ChangeEvent<HTMLTextAreaElement>
@@ -11,13 +22,14 @@ export type InputsT =
 export interface InputPropsI {
 	value: string | number;
 	onChange: (e: InputsT) => void;
+	name: string;
 	styling?: "default" | "underline";
 	type?: "text" | "textArea" | "password" | "select" | "number" | "email";
 	label?: string;
 	placeholder?: string;
 	suffix?: React.ReactNode;
 	error?: string;
-	name: string;
+	options?: string[];
 }
 
 const Input: React.FC<InputPropsI> = ({
@@ -30,6 +42,7 @@ const Input: React.FC<InputPropsI> = ({
 	suffix,
 	error,
 	name,
+	options,
 }) => {
 	return (
 		<Container>
@@ -53,7 +66,12 @@ const Input: React.FC<InputPropsI> = ({
 					<label htmlFor={name}>
 						<Text>{label}</Text>
 					</label>
-					<Select id={name} styling={styling} type={type} value={value} onChange={e => onChange(e)}></Select>
+					<SelectContainer>
+						<Select id={name} styling={styling} type={type} value={value} onChange={e => onChange(e)}>
+							{options && options.map(option => <option value={option}>{option}</option>)}
+						</Select>
+						<SelectIcon>{<BsFillCaretDownFill color={theme.text} />}</SelectIcon>
+					</SelectContainer>
 					<Suffix>{suffix}</Suffix>
 				</>
 			) : (
@@ -69,6 +87,7 @@ const Input: React.FC<InputPropsI> = ({
 						value={value}
 						onChange={e => onChange(e)}
 						error={error}
+						inputMode={type === "number" ? "numeric" : type === "email" ? "email" : "text"}
 					></InputContainer>
 					<Suffix>{suffix}</Suffix>
 					{error && <Error>{error}</Error>}

@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { INGRIDIENTS, RECIPES } from "../fixtures/data";
-import { useHistory } from "react-router-dom";
 import { CardLayout } from "../layouts";
 import styled from "styled-components";
-
-import { Header, Button, Text, Input } from "../components";
 import { useFormik } from "formik";
+
+import { Header, Text, Input } from "../components";
 import { Style } from "../styles/common";
+import { CATEGORIES } from "../fixtures/data";
 
 type PropsI = {};
 
@@ -30,10 +29,7 @@ const Row = styled.div`
 `;
 
 const Add: React.FC<PropsI> = () => {
-	const history = useHistory();
 	const [image, setImage] = useState<File>();
-
-	const DATA = RECIPES[0];
 
 	interface formValuesI {
 		name: string;
@@ -85,7 +81,8 @@ const Add: React.FC<PropsI> = () => {
 							label="Category"
 							placeholder="Select category"
 							name="category"
-							// type="select"
+							type="select"
+							options={CATEGORIES}
 							value={formik.values.category}
 							onChange={formik.handleChange}
 							error={formik.errors.category}

@@ -7,6 +7,7 @@ export interface PropsI {
 	id: string;
 	image: string;
 	title?: string;
+	fontSize?: "H2Bold" | "H3Bold";
 	height?: string;
 	width?: string;
 	marginRight?: string;
@@ -14,7 +15,17 @@ export interface PropsI {
 	clickHandler?: (id: RecipeI["id"]) => void;
 }
 
-const Tile: React.FC<PropsI> = ({ id, title, image, height, width, marginRight = "0rem", noOverlay, clickHandler }) => {
+const Tile: React.FC<PropsI> = ({
+	id,
+	title,
+	image,
+	height,
+	width,
+	marginRight = "0rem",
+	noOverlay,
+	clickHandler,
+	fontSize = "H2Bold",
+}) => {
 	return (
 		<Container
 			height={height}
@@ -25,7 +36,7 @@ const Tile: React.FC<PropsI> = ({ id, title, image, height, width, marginRight =
 			<Image src={image} />
 			{title && (
 				<Overlay noOverlay={noOverlay}>
-					<Text type="H2Bold" color="textInverted">
+					<Text type={fontSize} color="textInverted">
 						{title}
 					</Text>
 				</Overlay>

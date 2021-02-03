@@ -7,7 +7,7 @@ import styled from "styled-components/macro";
 import { useSelector } from "react-redux";
 import { useAuthChange } from "./hooks";
 
-import { Signin, Signup, ConfirmSignup, Page404, Home, Recipe, Add } from "./screens";
+import { Signin, Signup, ConfirmSignup, Page404, Home, Recipe, Add, Browse } from "./screens";
 import { BottomNavbarLayout } from "./layouts";
 import { Text } from "./components";
 
@@ -45,7 +45,7 @@ const App: React.FC = () => {
 				</ProtectedRoute>
 				<ProtectedRoute exact trigger={user} path={BROWSE} redirectTo={SIGN_IN}>
 					<BottomNavbarLayout>
-						<Text type="H1Bold">BROWSE</Text>
+						<Browse />
 					</BottomNavbarLayout>
 				</ProtectedRoute>
 				<ProtectedRoute exact trigger={user} path={`${RECIPE}/:id`} redirectTo={SIGN_IN}>
