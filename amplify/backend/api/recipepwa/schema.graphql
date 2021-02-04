@@ -1,0 +1,47 @@
+type User @model {
+	id: ID!
+	name: String!
+	recipes: [Recipe] @connection(keyName: "byUserId", fields: ["id"])
+	categories: [Category] @connection(keyName: "byUserId", fields: ["id"])
+	tags: [Tag] @connection(keyName: "byUserId", fields: ["id"])
+}
+
+type Category @model @key(name: "byUserId", fields: ["userId"], queryField: "categoriesByUserId") {
+	id: ID!
+	name: String!
+	userId: ID!
+	recipes: [Recipe] @connection(keyName: "byCategoryId", fields: ["id"])
+}
+
+type Tag @model @key(name: "byUserId", fields: ["userId"], queryField: "tagsByUserId") {
+	id: ID!
+	userId: ID!
+	name: String!
+	recipes: [Recipe] @connection(keyName: "byTagId", fields: ["id"])
+}
+
+type Recipe
+	@model
+	@key(name: "byUserId", fields: ["userId"], queryField: "recipesByUserId")
+	@key(name: "byCategoryId", fields: ["categoryId"], queryField: "recipesByCategoryId")
+	@key(name: "byTagId", fields: ["tagsId"], queryField: "recipesByTagId") {
+	id: ID!
+	userId: ID!
+	categoryId: ID!
+	name: String!
+	calories: Int
+	tagsId: [ID]
+	prepTime: Int
+	imageURL: String
+}
+
+# Functions:
+# 1. Create User on register
+# 2. Create 3 categories on register
+
+# Queries
+# 1. Query categories by user //Q: categoriesByUserId
+# 2. Get recipes by user //Q: recipesByUserId
+# 3. Get recipes by category //Q: recipesByCategoryId
+# 4. Get tags by user //Q: tagsByUserId
+# 5. Get recipes by tag //Q: recipesByTagId
