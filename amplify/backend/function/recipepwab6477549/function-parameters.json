@@ -1,0 +1,10 @@
+{
+  "lambdaLayers": [],
+  "permissions": {
+    "auth": {
+      "recipepwa35f7248c": [
+        "create"
+      ]
+    }
+  }
+}

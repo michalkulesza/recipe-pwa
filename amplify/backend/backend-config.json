@@ -24,5 +24,21 @@
         }
       }
     }
+  },
+  "function": {
+    "recipepwab6477549": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "recipepwa35f7248c",
+          "attributes": [
+            "UserPoolId"
+          ]
+        }
+      ]
+    }
   }
 }
