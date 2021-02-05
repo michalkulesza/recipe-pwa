@@ -2,6 +2,11 @@ import styled from "styled-components/macro";
 import { css } from "styled-components";
 import theme from "../../styles/theme";
 import { Shadow } from "../../styles/common";
+import { PropsI } from "./Button";
+
+interface TilePropsI {
+	height: PropsI["height"];
+}
 
 const commonStyles = css`
 	display: flex;
@@ -31,6 +36,17 @@ export const Round = styled.button`
 	height: 3rem;
 	width: 3rem;
 	border-radius: 50%;
+	padding-right: 0;
+	padding: 0;
+	color: ${theme.primary};
+	background-color: ${theme.textInverted};
+	${Shadow};
+`;
+
+export const Tile = styled.button`
+	${commonStyles};
+	height: ${({ height }: TilePropsI) => height};
+	width: ${({ height }: TilePropsI) => height && `calc(${height} * 0.7)`};
 	padding-right: 0;
 	padding: 0;
 	color: ${theme.primary};

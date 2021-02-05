@@ -1,14 +1,15 @@
 import React from "react";
-import { Default, Clear, Spinning, Round } from "./Button.styled";
+import { Default, Clear, Spinning, Round, Tile } from "./Button.styled";
 import { FaSpinner } from "react-icons/fa";
 
-type PropsI = {
+export type PropsI = {
 	handleClick?: () => void;
-	styling?: "default" | "clear" | "round";
+	styling?: "default" | "clear" | "round" | "tile";
 	type?: "button" | "submit";
 	form?: string;
 	disabled?: boolean;
 	loading?: boolean;
+	height?: string;
 };
 
 const Button: React.FC<PropsI> = ({
@@ -19,6 +20,7 @@ const Button: React.FC<PropsI> = ({
 	form,
 	disabled,
 	loading,
+	height,
 }) => {
 	return styling === "clear" ? (
 		<Clear onMouseDown={handleClick} type={type} form={form} disabled={disabled}>
@@ -28,6 +30,10 @@ const Button: React.FC<PropsI> = ({
 		<Round onMouseDown={handleClick} type={type} form={form} disabled={disabled}>
 			{children}
 		</Round>
+	) : styling === "tile" ? (
+		<Tile onMouseDown={handleClick} type={type} form={form} disabled={disabled} height={height}>
+			{children}
+		</Tile>
 	) : (
 		<Default onMouseDown={handleClick} type={type} form={form} disabled={disabled}>
 			{loading ? (

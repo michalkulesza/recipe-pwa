@@ -68,7 +68,12 @@ const Input: React.FC<InputPropsI> = ({
 					</label>
 					<SelectContainer>
 						<Select id={name} styling={styling} type={type} value={value} onChange={e => onChange(e)}>
-							{options && options.map(option => <option value={option}>{option}</option>)}
+							{options &&
+								options.map((option, i) => (
+									<option key={i} value={option}>
+										{option}
+									</option>
+								))}
 						</Select>
 						<SelectIcon>{<BsFillCaretDownFill color={theme.text} />}</SelectIcon>
 					</SelectContainer>

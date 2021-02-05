@@ -16,8 +16,8 @@ const useGreeting = (refreshCycle = 60000) => {
 	return greeting;
 };
 
-const getHours = () => {
-	return new Date().getHours();
+export const getHours = () => {
+	return new Date().getHours() + 1;
 };
 
 const getGreeting = (hour: number) => {
