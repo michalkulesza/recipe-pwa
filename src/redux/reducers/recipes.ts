@@ -3,8 +3,9 @@ import { recipesState, recipesTypes } from "../types/recipes";
 
 const initState: recipesState = {
 	featured: {
-		category: "",
-		recipes: [],
+		breakfast: undefined,
+		lunch: undefined,
+		dinner: undefined,
 	},
 	recentlyAdded: [],
 	lastUsed: [],

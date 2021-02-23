@@ -2,6 +2,12 @@ export const SET_FEATURED_RECIPES = "SET_FEATURED_RECIPES";
 export const SET_RECENTLY_ADDED_RECIPES = "SET_RECENTLY_ADDED_RECIPES";
 export const SET_LAST_USED_RECIPES = "SET_LAST_USED_RECIPES";
 
+export interface recipesState {
+	featured: FeaturedRecipesI;
+	recentlyAdded: RecipeI[];
+	lastUsed: RecipeI[];
+}
+
 export interface RecipeI {
 	id: string;
 	imageURL: string;
@@ -12,14 +18,9 @@ export interface RecipeI {
 }
 
 export interface FeaturedRecipesI {
-	category: string;
-	recipes: RecipeI[];
-}
-
-export interface recipesState {
-	featured: FeaturedRecipesI;
-	recentlyAdded: RecipeI[];
-	lastUsed: RecipeI[];
+	breakfast?: RecipeI[];
+	lunch?: RecipeI[];
+	dinner?: RecipeI[];
 }
 
 export interface setFeaturedRecipesAction {

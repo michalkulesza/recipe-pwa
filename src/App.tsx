@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ADD, BROWSE, HOME, RECIPE, SETTINGS, SIGN_CONFIRM, SIGN_IN, SIGN_UP } from "./constants/routes";
 import { ProtectedRoute, RedirectIfUser } from "./helpers/protectedRoute";
 import { RootState } from "./redux/reducers/rootReducer";
@@ -10,16 +10,20 @@ import { useAuthChange } from "./hooks";
 import { Signin, Signup, ConfirmSignup, Page404, Home, Recipe, Add, Browse } from "./screens";
 import { BottomNavbarLayout } from "./layouts";
 import { Text } from "./components";
+import { getHours } from "./hooks/useGreeting";
 
 const Container = styled.div`
-	height: 100vh;
 	width: 100%;
 	height: -webkit-fill-available;
+	height: 100vh;
 `;
 
 const App: React.FC = () => {
 	const { user } = useSelector((state: RootState) => state.auth);
+	const hour = getHours();
 	useAuthChange();
+
+	useEffect(() => {}, []);
 
 	return (
 		<Container>
