@@ -4,6 +4,7 @@ export interface ColorsI {
 	text: string;
 	textInverted: string;
 	background: string;
+	backgroundContrast: string;
 	placeholder: string;
 	error: string;
 }

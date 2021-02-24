@@ -7,10 +7,9 @@ import styled from "styled-components/macro";
 import { useSelector } from "react-redux";
 import { useAuthChange } from "./hooks";
 
-import { Signin, Signup, ConfirmSignup, Page404, Home, Recipe, Add, Browse } from "./screens";
+import { Signin, Signup, ConfirmSignup, Page404, Home, Recipe, Add, Browse, Settings } from "./screens";
 import { BottomNavbarLayout } from "./layouts";
-import { Text } from "./components";
-import { getHours } from "./hooks/useGreeting";
+// import { getHours } from "./hooks/useGreeting";
 
 const Container = styled.div`
 	width: 100%;
@@ -20,7 +19,7 @@ const Container = styled.div`
 
 const App: React.FC = () => {
 	const { user } = useSelector((state: RootState) => state.auth);
-	const hour = getHours();
+	// const hour = getHours();
 	useAuthChange();
 
 	useEffect(() => {}, []);
@@ -59,7 +58,7 @@ const App: React.FC = () => {
 				</ProtectedRoute>
 				<ProtectedRoute exact trigger={user} path={SETTINGS} redirectTo={SIGN_IN}>
 					<BottomNavbarLayout>
-						<Text type="H1Bold">SETTINGS</Text>
+						<Settings />
 					</BottomNavbarLayout>
 				</ProtectedRoute>
 				<Route render={() => <Page404 />} />

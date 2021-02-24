@@ -6,3 +6,4 @@ export { default as Home } from "./Home";
 export { default as Recipe } from "./Recipe";
 export { default as Add } from "./Add";
 export { default as Browse } from "./Browse";
+export { default as Settings } from "./Settings";
