@@ -3,7 +3,6 @@ import styled from "styled-components/macro";
 import { Style } from "../styles/common";
 
 interface Props {
-	navbar?: React.ReactNode;
 	header?: React.ReactNode;
 	content: React.ReactNode;
 }
@@ -27,18 +26,8 @@ const Scrollable = styled.div`
 	flex-shrink: 0;
 `;
 
-const Navbar = styled.div`
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 5rem;
-	padding: ${Style.margin};
-	z-index: 100;
-`;
-
 const Header = styled.div`
-	padding-top: 5rem;
+	padding-top: 1rem;
 `;
 
 const Content = styled.div`
@@ -48,10 +37,9 @@ const Content = styled.div`
 	padding-bottom: 6rem;
 `;
 
-const MainLayout: React.FC<Props> = ({ navbar, header, content }) => {
+const MainLayout: React.FC<Props> = ({ header, content }) => {
 	return (
 		<Container>
-			<Navbar>{navbar}</Navbar>
 			<Scrollable>
 				<Header>{header}</Header>
 				<Content>{content}</Content>
