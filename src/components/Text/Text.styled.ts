@@ -25,31 +25,37 @@ export const H1B = styled.h1<PropsI>`
 	font-weight: bold;
 `;
 
-export const H2B = styled.h1<PropsI>`
+export const H2 = styled.h2<PropsI>`
 	${props => commonStyles(props)};
-	font-size: 1.31rem;
+	font-size: 1.11rem;
+	font-weight: normal;
+`;
+
+export const H2B = styled.h2<PropsI>`
+	${props => commonStyles(props)};
+	font-size: 1.11rem;
 	font-weight: bold;
 `;
 
-export const H3 = styled.h1<PropsI>`
+export const H3 = styled.h3<PropsI>`
 	${props => commonStyles(props)};
 	font-size: 0.81rem;
 	font-weight: normal;
 `;
 
-export const H3B = styled.h1<PropsI>`
+export const H3B = styled.h3<PropsI>`
 	${props => commonStyles(props)};
 	font-size: 0.81rem;
 	font-weight: bold;
 `;
 
-export const H4 = styled.h1<PropsI>`
+export const H4 = styled.h4<PropsI>`
 	${props => commonStyles(props)};
 	font-size: 0.68rem;
 	font-weight: normal;
 `;
 
-export const H4B = styled.h1<PropsI>`
+export const H4B = styled.h4<PropsI>`
 	${props => commonStyles(props)};
 	font-size: 0.68rem;
 	font-weight: bold;

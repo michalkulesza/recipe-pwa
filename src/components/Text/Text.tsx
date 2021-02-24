@@ -1,11 +1,11 @@
 import React from "react";
 import { ColorsI } from "../../types";
 
-import { H1, H1B, H2B, H3, H3B, H4, H4B } from "./Text.styled";
+import { H1, H1B, H2, H2B, H3, H3B, H4, H4B } from "./Text.styled";
 
 interface Props {
 	children: React.ReactNode;
-	type?: "H1" | "H1Bold" | "H2Bold" | "H3" | "H3Bold" | "H4" | "H4Bold";
+	type?: "H1" | "H1Bold" | "H2" | "H2Bold" | "H3" | "H3Bold" | "H4" | "H4Bold";
 	inverted?: boolean;
 	color?: keyof ColorsI;
 	marginRight?: string;
@@ -22,6 +22,10 @@ const Text: React.FC<Props> = ({ children, type = "H3", inverted = false, color 
 				<H1B inverted={inverted} color={color}>
 					{children}
 				</H1B>
+			) : type === "H2" ? (
+				<H2 inverted={inverted} color={color}>
+					{children}
+				</H2>
 			) : type === "H2Bold" ? (
 				<H2B inverted={inverted} color={color}>
 					{children}
