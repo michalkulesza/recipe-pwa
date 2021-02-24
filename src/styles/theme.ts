@@ -6,6 +6,7 @@ const light: ColorsI = {
 	text: "#000024",
 	textInverted: "#FFFFFF",
 	background: "#F0F2F7",
+	backgroundContrast: "#E0E2E6",
 	placeholder: "#A3A2B2",
 	error: "red",
 };
